@@ -14,8 +14,18 @@ pipeline {
                     sh 'echo "Testins stage && Slack"'
                 }
             }
+            post {
+                success {
+                    slackSend color: 'good', message: "Build Success: [Hector Zapata] [${JOB_NAME}] Ejecucion Exitosa", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
+                }
+                failure {
+                    slackSend color: 'danger', message: "Build Failure: [Hector Zapata] [${env.JOB_NAME}]  Ejecucion fallida en stage [${env.STAGE}]", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
+                }
+            }
+        }
+        stage('Ejecutar Comando ps') {
             steps {
-                echo "Comando ps -aux"
+                eecho "Comando ps -aux"
             }
             post {
                 success {
