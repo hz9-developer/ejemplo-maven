@@ -7,28 +7,20 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Step 1') {
+        stage('STAGE TEST') {
             steps {
-                echo 'Step 1'
-                sh "uname"
+                script {
+                    env.STAGE = 'STAGE TEST'
+                    sh 'echo "Testins stage && Slack"'
+                }
             }
-        }
-        stage('Step 2') {
-            steps {
-                echo 'Step 2'
-                sh "java --version"
-            }
-        }
-        stage('Step 3') {
-            steps {
-                echo 'Step 3'
-                echo "Comando ps -aux"
-            }
-        }
-        stage('Step 4') {
-            steps {
-                echo 'Step 4'
-                sh "pwd"
+            post {
+                success {
+                    slackSend color: 'good', message: "Build Success: [Hector Zapata] [${JOB_NAME}] Ejecucion Exitosa", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
+                }
+                failure {
+                    slackSend color: 'danger', message: "Build Failura: [Hector Zapata] [${env.JOB_NAME}]  Ejecucion fallida en stage [${env.STAGE}]", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
+                }
             }
         }
         stage('Good Bye') {
