@@ -25,7 +25,10 @@ pipeline {
         }
         stage('Ejecutar Comando ps') {
             steps {
-                eecho "Comando ps -aux"
+                script {
+                    env.STAGE = 'STAGE EJECUCION COMANDO'
+                }
+                echo "Comando ps -aux"
             }
             post {
                 success {
