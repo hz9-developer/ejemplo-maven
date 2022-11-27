@@ -14,6 +14,9 @@ pipeline {
                     sh 'echo "Testins stage && Slack"'
                 }
             }
+            steps {
+                echo "Comando ps -aux"
+            }
             post {
                 success {
                     slackSend color: 'good', message: "Build Success: [Hector Zapata] [${JOB_NAME}] Ejecucion Exitosa", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
