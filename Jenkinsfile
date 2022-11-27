@@ -19,13 +19,13 @@ pipeline {
                     slackSend color: 'good', message: "Build Success: [Hector Zapata] [${JOB_NAME}] Ejecucion Exitosa", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
                 }
                 failure {
-                    slackSend color: 'danger', message: "Build Failura: [Hector Zapata] [${env.JOB_NAME}]  Ejecucion fallida en stage [${env.STAGE}]", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
+                    slackSend color: 'danger', message: "Build Failure: [Hector Zapata] [${env.JOB_NAME}]  Ejecucion fallida en stage [${env.STAGE}]", teamDomain: 'devopsusach20-lzc3526', tokenCredentialId: 'token-slack'
                 }
             }
         }
         stage('Good Bye') {
             steps {
-                echo 'Good Bye Usach Ceres'
+                echo 'Good Bye: Slack Notifications'
             }
         }
     }
