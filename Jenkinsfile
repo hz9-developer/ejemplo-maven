@@ -6,7 +6,7 @@ def jsonParse(def json) {
 pipeline {
     agent any
     stages {
-        stage("Paso 1: Compliar"){
+        stage("Paso 1: Compilar"){
             steps {
                 script {
                 sh "echo 'Compile Code!'"
@@ -45,6 +45,14 @@ pipeline {
                     sh "echo 'Calling sonar Service in another docker container!'"
                     // Run Maven on a Unix agent to execute Sonar.
                     sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=custom-project-key'
+                }
+            }
+        }
+        stage("Paso 5: Pruebas con Newman"){
+            steps {
+                script {
+                sh "echo 'Pruebas Newman!'"
+                sh "./newman run jsonplaceholder.typicode.com.postman_collection.json -n 10 --delay-request 1000"
                 }
             }
         }
