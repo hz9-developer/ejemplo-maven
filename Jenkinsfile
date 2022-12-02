@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {
                 sh "echo 'Pruebas Newman!'"
-                sh "./newman run jsonplaceholder.typicode.com.postman_collection.json -n 10 --delay-request 1000"
+                sh "newman run jsonplaceholder.typicode.com.postman_collection.json -n 10 --delay-request 1000"
                 }
             }
         }
