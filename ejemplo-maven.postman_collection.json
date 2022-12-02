@@ -17,7 +17,7 @@
 							"    pm.expect(pm.response).to.have.code(200);",
 							"});",
 							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
+							"pm.test(\"Response time is less than 2500ms\", function () {",
 							"    pm.expect(pm.response.responseTime).to.be.below(2500);",
 							"});"
 						],
@@ -72,13 +72,7 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.expect(pm.response).to.have.code(200);",
-							"});",
-							"",
-							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
