@@ -1,4 +1,3 @@
-
 {
 	"info": {
 		"_postman_id": "982fcebf-c64c-422e-bbd9-69aa8d21d316",
@@ -15,11 +14,11 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
-							"    pm.expect(pm.response).to.have.code(200);",
+							"    pm.response.to.have.code(200);",
 							"});",
 							"",
 							"pm.test(\"Response time is less than 2500ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(2500);",
+							"    pm.response.responseTime.to.be.below(2500);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -59,7 +58,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
-							"    pm.expect(pm.response).to.have.code(200);",
+							"    pm.response.to.have.code(200);",
 							"});",
 							"pm.test(\"Mensaje == ok\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -103,11 +102,11 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
-							"    pm.expect(pm.response).to.have.code(200);",
+							"    pm.response.to.have.code(200);",
 							"});",
 							"",
 							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
+							"    pm.response.responseTime.to.be.below(250);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -153,11 +152,11 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
-							"    pm.expect(pm.response).to.have.code(200);",
+							"    pm.response.to.have.code(200);",
 							"});",
 							"",
 							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(250);",
+							"    pm.response.responseTime.to.be.below(250);",
 							"});"
 						],
 						"type": "text/javascript"
